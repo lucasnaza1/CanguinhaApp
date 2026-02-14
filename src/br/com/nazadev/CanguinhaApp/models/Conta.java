@@ -1,9 +1,11 @@
+package br.com.nazadev.CanguinhaApp.models;
+
 public class Conta {
-    double saldo;
-    String titular;
+    public double saldo;
+    public String titular;
 
     public Conta(double saldo, String titular) {
-        this.saldo = 0.0;
+        this.saldo = saldo;
         this.titular = titular;
     }
 
@@ -24,5 +26,14 @@ public class Conta {
         } else {
             System.out.println("O valor deve ser maior que zero");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Seja bem-vindo(a) " + titular + "!" + "\n"
+        + "Saldo atual " + "R$ " + String.format("%.2f", saldo) + "\n";
+    }
+    public void mostraDados(){
+        System.out.println(this);
     }
 }
