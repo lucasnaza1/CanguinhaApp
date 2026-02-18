@@ -1,22 +1,13 @@
 import br.com.nazadev.CanguinhaApp.models.*;
 
-import java.math.BigDecimal;
-
 public class Main {
     public static void main(String[] args) {
-        Conta novaConta = new Conta(1000, "Lucas");
-
+        Conta novaConta = new Conta(2000, "Lucas");
+        novaConta.registrarGasto(15.43, "almoço");
+        novaConta.registrarGasto(17.50, "servidor");
+        novaConta.registrarGasto(398.45, "fatura nubank");
+        novaConta.registrarGasto(438.95, "fatura picpay");
+        novaConta.registrarGasto(86.05, "DAS");
         novaConta.mostraDados();
-
-        BigDecimal taxaCaixinhaSimples = new BigDecimal("0.00055");
-        Investimentos calculador = new Investimentos(taxaCaixinhaSimples);
-
-        BigDecimal saldoAtual = BigDecimal.valueOf(novaConta.saldo);
-
-        BigDecimal rendimentoUmDia = calculador.calcularRendimentoLiquido(saldoAtual, 365);
-
-        System.out.println("\n---Projeção Canguinha---");
-        System.out.println("Seu saldo renderia hoje: " + rendimentoUmDia);
-        System.out.println("Saldo total projetado: " + saldoAtual.add(rendimentoUmDia));
     }
 }
